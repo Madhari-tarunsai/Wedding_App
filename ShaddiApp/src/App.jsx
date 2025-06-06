@@ -1,13 +1,23 @@
 import React from 'react'
 import NavBar from './Components/NavBar/NavBar'
 import Home from './Components/Home/Home'
+import {Routes,Route} from 'react-router-dom'
+import About from './Components/About/About'
+import Services from './Components/Services/Services'
+
 
 const App = () => {
   return (
     <div>
       <div>
         <NavBar/>
-        <Home/>
+        <Routes>
+          <Route path='*' element={<Home/>}/>
+          <Route path='/Home' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/services' element={<Services/>}/>
+       </Routes>
+     
       </div>
     </div>
   )
