@@ -15,7 +15,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="logo">
         <h1>
-          Sha<span>dhi</span>.com
+          Matri<span>mony</span>.com
         </h1>
       </div>
 

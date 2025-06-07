@@ -1,24 +1,30 @@
 import React from 'react'
 import './Home.css'
 import video from '../../assets/Videos/video01.mp4'
+import Elite from '../../Elite/Elite'
+import Assisent from '../../Assisent/Assisent'
+import Loaction from '../../Location/Location'
+
 
 const Home = () => {
   return (
-    <div className="home-container">
-      <div className="home-wrapper">
-        <div className="video-container">
-          <video src={video} controls autoPlay muted loop />
+    <div>
+      <div className='home'>
+        <div className='head'>
+          <h1>Together<span>Always</span> </h1>
+          <p>A wedding is a ceremonial event where two people are united in marriage. It is both a personal commitment and often</p>
+          <p>a cultural or religious tradition, celebrated with various rituals, customs, and festivities.</p>
         </div>
-        <div className="text-container">
-          <h1>💍Wedd<span>ing</span></h1>
-          <p>
-            A wedding is a formal event that signifies the union of two individuals in marriage,
-            often witnessed and celebrated by family, friends, and the wider community. 
-            <span style={{color:"#d63384"}}> It marks the beginning of a couple's shared journey</span> in life and represents 
-            love, commitment, and partnership.
-          </p>
+        <div className='video'>
+          <video src={video} muted autoPlay loop controls/>
         </div>
       </div>
+    <Assisent/>
+    <Elite/>
+    <Loaction/>
+    
+
+
     </div>
   )
 }
