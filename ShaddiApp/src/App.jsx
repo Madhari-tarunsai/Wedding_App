@@ -4,6 +4,7 @@ import Home from './Components/Home/Home'
 import {Routes,Route} from 'react-router-dom'
 import Maps from './Maps/Maps'
 import About from './Components/About/About'
+import Services from './Components/Services/Services'
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='*' element={<Home/>}/>
           <Route path='/Home' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route path='/services' element={<Services/>}/>
           
           <Route path="/maps" element={<Maps/>} />
 
