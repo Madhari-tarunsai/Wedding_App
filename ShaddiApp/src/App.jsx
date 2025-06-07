@@ -3,6 +3,7 @@ import NavBar from './Components/NavBar/NavBar'
 import Home from './Components/Home/Home'
 import {Routes,Route} from 'react-router-dom'
 import Maps from './Maps/Maps'
+import About from './Components/About/About'
 
 
 
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path='*' element={<Home/>}/>
           <Route path='/Home' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
           
           <Route path="/maps" element={<Maps/>} />
 

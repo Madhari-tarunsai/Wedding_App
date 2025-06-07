@@ -1,0 +1,65 @@
+.stories-section {
+  padding: 60px 20px;
+  
+  text-align: center;
+}
+
+.stories-title {
+  font-size: 2.5rem;
+  color: #1a4ed8;
+  margin-bottom: 40px;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 78, 216, 0.9);
+  color: #fff;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.story-card:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.overlay p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+}
