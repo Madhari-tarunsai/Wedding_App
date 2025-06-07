@@ -4,6 +4,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { AiFillAndroid } from "react-icons/ai";
 import { FcServices } from "react-icons/fc";
 import { CgProfile } from "react-icons/cg";
+import { GiLovers } from "react-icons/gi";
 import {Link} from 'react-router-dom'
 
 const NavBar = () => {
@@ -28,6 +29,9 @@ const NavBar = () => {
         </Link>
          <Link to="/services" >
           <FcServices /> Services
+        </Link>
+         <Link to="/stories" >
+          <GiLovers /> Stories
         </Link>
         <Link to="/profile" >
           <CgProfile /> Profile

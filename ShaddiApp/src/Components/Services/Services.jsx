@@ -6,6 +6,7 @@ import Intro from './Intro/Intro';
 import Benifits from './Benifits/Benifits';
 import Culture from './Culture/Culture';
 import Trusted from './Trusted/Trusted';
+import Provides from './Provides/Provides';
 
 const Services = () => {
   return (
@@ -33,6 +34,7 @@ const Services = () => {
     <Benifits/>
     <Culture/>
     <Trusted/>
+    <Provides/>
     </div>
     
   );

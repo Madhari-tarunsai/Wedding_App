@@ -1,8 +1,9 @@
 import React from 'react';
-import './Stories.css'; // Import external CSS
-
+import './Stories.css'; 
+import HappyStories from './HappyStories/HappyStories';
 const Stories = () => {
   return (
+    <div>
     <div className="stories-section">
       <h1 className="stories-title">Millions of Happy Stories</h1>
       <div className="stories-grid">
@@ -63,6 +64,8 @@ const Stories = () => {
           </div>
         </div>
       </div>
+    </div>
+    <HappyStories/>
     </div>
   );
 };
