@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from './Components/NavBar/NavBar'
 import Home from './Components/Home/Home'
 import {Routes,Route} from 'react-router-dom'
-import Maps from './Maps/Maps'
+import Maps from './Components/Home/Maps/Maps'
 import About from './Components/About/About'
 import Services from './Components/Services/Services'
 

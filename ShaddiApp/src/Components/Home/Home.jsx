@@ -1,10 +1,10 @@
 import React from 'react'
 import './Home.css'
 import video from '../../assets/Videos/video01.mp4'
-import Elite from '../../Elite/Elite'
-import Assisent from '../../Assisent/Assisent'
-import Loaction from '../../Location/Location'
-import Info from '../../Info/Info'
+import Elite from './Elite/Elite'
+import Assisent from './Assisent/Assisent'
+import Loaction from './Location/Location'
+import Info from './Info/Info'
 
 
 const Home = () => {

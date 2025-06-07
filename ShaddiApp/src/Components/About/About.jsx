@@ -2,9 +2,9 @@ import React from 'react';
 import './About.css';
 import brideImage from '../../assets/Images/image01.png';
 import dressImage from '../../assets/Images/image02.png';
-import Stories from '../../Stories/Stories';
-import Sites from '../../Sites/Sites';
-import Trusted from '../../Trusted/Trusted';
+import Stories from './Stories/Stories';
+import Sites from './Sites/Sites';
+import Trusted from './Trusted/Trusted';
 
 const About = () => {
   return (
