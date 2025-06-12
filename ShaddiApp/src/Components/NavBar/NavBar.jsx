@@ -18,6 +18,7 @@ const NavBar = () => {
   useEffect(() => {
     const admin = JSON.parse(localStorage.getItem("logginadmin"));
     const user = JSON.parse(localStorage.getItem("logginuser"));
+    console.log(user);
 
     if (admin) {
       setDisplayName(admin.user.displayName);
@@ -65,14 +66,27 @@ const NavBar = () => {
 
       <div className="navbar-right">
         {displayName && (
-          <span className="welcome-msg"> Welcome, {displayName}🤝</span>
+          <span className="welcome-msg">
+            Welcome:- {displayName} 🤝
+            <img
+              src="https://www.pngall.com/wp-content/uploads/5/Profile-Transparent.png"
+              alt="Profile"
+              className="profile-icon"
+            />
+          </span>
         )}
         {!displayName ? (
           <div className="login-btn" onClick={handleLoginClick}>
-            {loading ? <span className="loading-spinner">⏳ Logging in...</span> : "Login"}
+            {loading ? (
+              <span className="loading-spinner">⏳ Logging in...</span>
+            ) : (
+              "Login"
+            )}
           </div>
         ) : (
-          <button onClick={handleLogout} className="logout-button">Logout</button>
+          <button onClick={handleLogout} className="logout-button">
+            Logout
+          </button>
         )}
       </div>
 

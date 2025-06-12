@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Help & Support</h4>
           <ul>
-            <a href="/Contact" target='_blank'><li>Contact us</li></a>
+            <a href="/Contact" target='_blank' style={{textDecoration:'none'}}><li>Contact us</li></a>
             <li>Feedback</li>
             <li>FAQs</li>
           </ul>

@@ -302,3 +302,10 @@ nav.navbar {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}

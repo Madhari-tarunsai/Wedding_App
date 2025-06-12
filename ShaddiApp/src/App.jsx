@@ -11,10 +11,14 @@ import Footer from './Components/Footer/Footer'
 import Contact from './Components/Contact/Contact'
 import Register from './Pages/Register/Register'
 import Login from './Pages/Login/Login'
+import Profile from './Components/Profile/Profile'
 
 const App = () => {
   const location = useLocation();
-  const hideFooter = location.pathname === '/login' || location.pathname === '/register';
+  const hideFooter =
+    location.pathname === '/login' ||
+    location.pathname === '/register' ||
+    location.pathname === '/profile';
 
   return (
     <div>
@@ -30,6 +34,7 @@ const App = () => {
         <Route path='/contact' element={<Contact />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
       {!hideFooter && <Footer />}
     </div>
