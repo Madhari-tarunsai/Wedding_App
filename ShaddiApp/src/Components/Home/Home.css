@@ -116,3 +116,80 @@
     text-align: center;
   }
 }
+.alert-card {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #fff4e6;
+  border: 2px solid #ffa726;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: zoomIn 0.5s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.alert-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #ff5722;
+}
+
+.alert-card p {
+  margin-top: 8px;
+  color: #333;
+  font-size: 1rem;
+}
+.alert-card {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #fff4e6;
+  border: 2px solid #ffa726;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: zoomIn 0.5s ease forwards, fadeOut 1s ease 3s forwards;
+  z-index: 9999;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.alert-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #ff5722;
+}
+
+.alert-card p {
+  margin-top: 8px;
+  color: #333;
+  font-size: 1rem;
+}

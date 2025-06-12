@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+body {
+  padding-top: 70px; /* Prevent content from hiding under fixed navbar */
+}
+
+/* Navbar container */
 nav.navbar {
   display: flex;
   justify-content: space-between;
@@ -13,7 +18,10 @@ nav.navbar {
   background-color: #fff;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
 }
 
@@ -41,17 +49,20 @@ nav.navbar {
   gap: 30px;
 }
 
-.nav-links p {
+.nav-links p,
+.nav-links a {
   font-size: 16px;
   color: #555;
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
   user-select: none;
+  text-decoration: none;
 }
 
-/* Underline animation on hover */
-.nav-links p::after {
+/* Underline animation */
+.nav-links p::after,
+.nav-links a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -63,11 +74,13 @@ nav.navbar {
   border-radius: 2px;
 }
 
-.nav-links p:hover {
+.nav-links p:hover,
+.nav-links a:hover {
   color: #e91e63;
 }
 
-.nav-links p:hover::after {
+.nav-links p:hover::after,
+.nav-links a:hover::after {
   width: 100%;
 }
 
@@ -143,19 +156,15 @@ nav.navbar {
     transform: translateX(0);
   }
 
-  /* Hide login button on desktop, show in menu */
   .login-btn {
     display: none;
   }
 
-  /* Show hamburger */
   .hamburger {
     display: flex;
   }
-}
 
-/* On mobile, add login inside menu as last item */
-@media (max-width: 768px) {
+  /* Mobile login button in menu */
   .nav-links.active::after {
     content: 'Login';
     display: block;
@@ -177,33 +186,119 @@ nav.navbar {
     color: #fff;
   }
 }
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 16px;
-  color: #555;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.3s ease;
-  user-select: none;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
   left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background-color: #e91e63;
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
-
-.nav-links a:hover {
-  color: #e91e63;
-}
-
-.nav-links a:hover::after {
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #ff5a60;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff5a60;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #e14c55;
+}
+
+.switch-link {
+  color: #007bff;
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.login-btn {
+  background-color: #ff5a60;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #e14b50;
+}
+
+.loading-spinner {
+  font-style: italic;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcome-msg {
+  color: #e91e63;
+  font-weight: bold;
+  animation: flowerPulse 2s infinite;
+}
+
+.logout-button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c2185b;
+}
+
+@keyframes flowerPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }

@@ -32,9 +32,10 @@ const Services = () => {
     <Millions/>
     <Intro/>
     <Benifits/>
+    <Provides/>
     <Culture/>
     <Trusted/>
-    <Provides/>
+    
     </div>
     
   );

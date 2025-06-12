@@ -1,0 +1,129 @@
+.footer {
+  background-color: #fffdf6;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px 20px 10px;
+  color: #444;
+  animation: fadeInFooter 1.5s ease-in-out;
+}
+
+@keyframes fadeInFooter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #f2c94c;
+  padding-bottom: 30px;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+  transform: translateY(-5px);
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ff5a60;
+  animation: slideInTitle 0.8s ease-in-out;
+}
+
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin: 6px 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section li:hover {
+  color: #f08a5d;
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.footer-cert-social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.certification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #2f4858;
+}
+
+.certification img {
+  width: 50px;
+  height: 60px;
+  object-fit: contain;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.3rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-icons span {
+  font-size: 0.9rem;
+  margin-right: 10px;
+  color: #222;
+}
+
+.social-icons svg:hover {
+  color: #ff5a60;
+  transform: scale(1.2);
+}
