@@ -11,15 +11,15 @@ const Profile = () => {
     navigate('/addcard')
   }
   const handlersubmit=()=>{
-    navigate('/upload')
+    navigate('/rashi')
   }
   return (
     <div>
       <div className='main-nav'>
         <div className='left-nav'>
-          <button>All</button>
+          {/* <button>All</button> */}
           <button onClick={handlerclick}>AddCard <GiLockedHeart/></button>
-          <button onClick={handlersubmit}>Upload My Details <MdDriveFileRenameOutline /></button>
+          <button onClick={handlersubmit}>Check our marriageBound <MdDriveFileRenameOutline /></button>
         </div>
         <div className='right-content'>
           <PData/>

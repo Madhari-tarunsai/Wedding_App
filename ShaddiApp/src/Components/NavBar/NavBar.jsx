@@ -18,7 +18,7 @@ const NavBar = () => {
   useEffect(() => {
     const admin = JSON.parse(localStorage.getItem("logginadmin"));
     const user = JSON.parse(localStorage.getItem("logginuser"));
-    console.log(user);
+    // console.log(user);
 
     if (admin) {
       setDisplayName(admin.user.displayName);

@@ -13,7 +13,7 @@ import Register from './Pages/Register/Register'
 import Login from './Pages/Login/Login'
 import Profile from './Components/Profile/Profile'
 import Addcard from './Components/Profile/Addcard/Addcard'
-import AddDetails from './Components/Profile/AddDetails/AddDetails'
+import Astrology from './Components/Profile/Astrology/Astrology'
 
 const App = () => {
   const location = useLocation();
@@ -22,7 +22,7 @@ const App = () => {
     location.pathname === '/register' ||
     location.pathname === '/profile' ||
     location.pathname === '/addcard'||
-    location.pathname==='/upload'
+    location.pathname==='/rashi'
 
   return (
     <div>
@@ -40,7 +40,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/addcard' element={<Addcard />} />
-        <Route path='/upload' element={<AddDetails/>}/>
+        <Route path='/rashi' element={<Astrology/>}/>
       </Routes>
       {!hideFooter && <Footer />}
     </div>
