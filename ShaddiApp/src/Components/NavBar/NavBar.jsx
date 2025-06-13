@@ -14,10 +14,10 @@ const NavBar = () => {
   const [displayName, setDisplayName] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate();
-
+  const admin = JSON.parse(localStorage.getItem("logginadmin"));
+  const user = JSON.parse(localStorage.getItem("logginuser"));
   useEffect(() => {
-    const admin = JSON.parse(localStorage.getItem("logginadmin"));
-    const user = JSON.parse(localStorage.getItem("logginuser"));
+  
     // console.log(user);
 
     if (admin) {
@@ -27,7 +27,7 @@ const NavBar = () => {
       setDisplayName(user.user.displayName);
       setRole("user");
     }
-  }, []);
+  }, [admin || user]);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 

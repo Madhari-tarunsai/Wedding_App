@@ -21,12 +21,10 @@
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Hover effect */
 .card:hover {
   transform: scale(1.04);
 }
 
-/* Image area */
 .image-container {
   position: relative;
 }
@@ -51,7 +49,6 @@
   cursor: pointer;
 }
 
-/* Text styles */
 .profile-id {
   font-size: 13px;
   color: gray;
@@ -72,7 +69,6 @@
   margin-bottom: 6px;
 }
 
-/* Buttons */
 .card-buttons {
   display: flex;
   justify-content: center;
@@ -95,7 +91,6 @@
 .card-buttons button:nth-child(1) {
   background-color: green;
 }
-
 .card-buttons button:nth-child(1):hover {
   background-color: darkgreen;
 }
@@ -104,13 +99,12 @@
 .card-buttons .interest {
   background-color: #ff6f00;
 }
-
 .card-buttons button:nth-child(2):hover,
 .card-buttons .interest:hover {
   background-color: #e65100;
 }
 
-/* Loading spinner */
+/* Loader styles */
 .loader-container {
   width: 100%;
   display: flex;
@@ -137,7 +131,6 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Animation for cards */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -149,7 +142,7 @@
   }
 }
 
-/* One-by-one card animation delays */
+/* Staggered animations */
 .card:nth-child(1) { animation-delay: 0.1s; }
 .card:nth-child(2) { animation-delay: 0.2s; }
 .card:nth-child(3) { animation-delay: 0.3s; }
@@ -161,24 +154,34 @@
 .card:nth-child(9) { animation-delay: 0.9s; }
 .card:nth-child(10) { animation-delay: 1s; }
 
-/* Responsive cards */
+/* --- Responsive Design --- */
+
+/* Wall screen (very large) */
+@media (min-width: 1800px) {
+  .card {
+    flex: 0 0 calc((100% - 4 * 35px) / 5);
+  }
+}
+
+/* Laptops & large tablets (up to 1200px) */
 @media (max-width: 1200px) {
   .card {
     flex: 0 0 calc((100% - 2 * 30px) / 3);
   }
 }
 
+/* Tablets and small laptops (up to 900px) */
 @media (max-width: 900px) {
   .card {
     flex: 0 0 calc((100% - 1 * 20px) / 2);
   }
 }
 
+/* Mobiles and small screens (up to 600px) */
 @media (max-width: 600px) {
   .card {
-    flex: 0 0 90%;         
-    max-width: 95%;        
-    margin: 0 auto;        
+    flex: 0 0 90%;
+    max-width: 95%;
+    margin: 0 auto;
   }
 }
-

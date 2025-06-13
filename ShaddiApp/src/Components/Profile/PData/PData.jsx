@@ -1,89 +1,75 @@
 import React, { useEffect, useState } from 'react';
 import './PData.css';
-import { dataBase } from '../../../FireBase/FireBase';
-import { updateDoc, arrayUnion, doc } from 'firebase/firestore';
 import axios from 'axios';
 
 const PData = () => {
   const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const loggedinuser = JSON.parse(localStorage.getItem('logginuser'));
-  const user = loggedinuser?.user?.displayName;
-
   useEffect(() => {
-    const fetchProfiles = async () => {
-      try {
-        const res = await axios.get("https://684a93b0165d05c5d3595dea.mockapi.io/marriages");
-        console.log("API response:", res.data);
-
-        
-        if (Array.isArray(res.data) && res.data[0] && !res.data[0].profiles) {
-          setProfile(res.data);
-        }
-     
-        else {
-          setProfile(res.data[0]?.profiles || []);
-        }
-
-      } catch (err) {
-        console.error('Error fetching data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchProfiles();
   }, []);
 
-  const handlerClick = async (cardData) => {
-    if (!user) {
-      alert("Please log in to shortlist profiles.");
-      return;
-    }
-
+  const fetchProfiles = async () => {
     try {
-      const docRef = doc(dataBase, 'User', user);
-      await updateDoc(docRef, { Addcard: arrayUnion(cardData) });
-      alert('🛒 Profile added to your card!');
+      const res = await axios.get('https://684a93b0165d05c5d3595dea.mockapi.io/marriages');
+      setProfile(res.data);
     } catch (err) {
-      console.error("Error adding profile to card:", err);
+      console.error('Error fetching profiles:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  if (loading) {
-    return (
-      <div className="loader-container">
-        <div className="spinner"></div>
-        <p>Loading profiles...</p>
-      </div>
-    );
-  }
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`https://684a93b0165d05c5d3595dea.mockapi.io/marriages/${id}`);
+      setProfile(prev => prev.filter(profile => profile.id !== id));
+      alert('🗑️ Profile deleted successfully');
+    } catch (err) {
+      console.error('Delete failed:', err);
+      alert('❌ Failed to delete profile');
+    }
+  };
 
-  if (!profile.length) {
-    return <p>No profiles found.</p>;
-  }
+  const handleInterest = (item) => {
+    const interests = JSON.parse(localStorage.getItem("interests")) || [];
+    if (!interests.find(i => i.id === item.id)) {
+      interests.push(item);
+      localStorage.setItem("interests", JSON.stringify(interests));
+      alert(`💌 Interest shown in ${item.name}`);
+    } else {
+      alert('Already interested.');
+    }
+  };
+
+  const handleContact = (item) => {
+    alert(`📞 Contact ${item.name}\nPhone: 99999-99999\nEmail: ${item.name.replace(/\s/g, '').toLowerCase()}@gmail.com`);
+  };
+
+  if (loading) return <p>Loading profiles...</p>;
+  if (!profile.length) return <p>No profiles found.</p>;
 
   return (
     <div className="card-container">
       {profile.map((x) => (
         <div className="card" key={x.id}>
-          <div className="image-container">
-            <img src={x.image} alt={x.name} className="profile-img" />
-            <button className="shortlist-btn">♡ Like</button>
-          </div>
+          <img src={x.image} alt={x.name} className="profile-img" />
           <h2>{x.name}</h2>
-          <p className="profile-id">ID: {x.id} | Last seen: Recently</p>
+          <p>ID: {x.id}</p>
           <ul className="profile-details">
-            <li><strong style={{ color: 'green' }}>About:</strong> {x.about}</li>
-            <li>🎂 DOB: {x.age} Yrs, {x.height}</li>
-            <li>🧬 CASTE: {x.caste}</li>
-            <li>🎓 EDUCATION: {x.education}</li>
-            <li>📍 LOCATION: {x.location}</li>
+            <li><strong>About:</strong> {x.about}</li>
+            <li>🎂 Age: {x.age}, {x.height}</li>
+            <li>🧬 Caste: {x.caste}</li>
+            <li>🎓 Education: {x.education}</li>
+            <li>📍 Location: {x.location}</li>
           </ul>
           <div className="card-buttons">
-            <button onClick={() => handlerClick(x)}>💌 Interest</button>
-            <button className="interest">📞 Contact</button>
+            <button onClick={() => handleInterest(x)}>💌 Interest</button>
+            <button onClick={() => handleContact(x)}>📞 Contact</button>
+            {x.source === 'AddDetails' && (
+              <button onClick={() => handleDelete(x.id)} style={{backgroundColor:'red' ,color:'white'}}>🗑️ Delete</button>
+            )}
           </div>
         </div>
       ))}

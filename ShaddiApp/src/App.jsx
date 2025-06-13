@@ -14,6 +14,7 @@ import Login from './Pages/Login/Login'
 import Profile from './Components/Profile/Profile'
 import Addcard from './Components/Profile/Addcard/Addcard'
 import Astrology from './Components/Profile/Astrology/Astrology'
+import AddDetails from './Components/Profile/AddDetails/AddDetails'
 
 const App = () => {
   const location = useLocation();
@@ -22,7 +23,8 @@ const App = () => {
     location.pathname === '/register' ||
     location.pathname === '/profile' ||
     location.pathname === '/addcard'||
-    location.pathname==='/rashi'
+    location.pathname==='/rashi' ||
+    location.pathname==='/addDetails'
 
   return (
     <div>
@@ -41,6 +43,7 @@ const App = () => {
         <Route path='/profile' element={<Profile />} />
         <Route path='/addcard' element={<Addcard />} />
         <Route path='/rashi' element={<Astrology/>}/>
+        <Route path='/addDetails' element={<AddDetails/>}/>
       </Routes>
       {!hideFooter && <Footer />}
     </div>
